@@ -17,12 +17,35 @@
 
 	<properties>
 		<java.version>1.8</java.version>
-		<sonar.coverage.exclusions>
-            **/dto/*,
-            **/model/*,
-            **/configuration/*,
-            **/exception/*,
-            **/dao/*
+		 <jacoco.version>0.8.3</jacoco.version>
+        <sonar.coverage.exclusions>
+        src/main/java/com/demo/onlinebookborrowsystem/model/Books.java
+       	src/main/java/com/demo/onlinebookborrowsystem/model/Category.java
+       	src/main/java/com/demo/onlinebookborrowsystem/model/Confirmation.java
+    	src/main/java/com/demo/onlinebookborrowsystem/model/User.java
+        src/main/java/com/demo/onlinebookborrowsystem/dto/BookListResponseDto.java
+        src/main/java/com/demo/onlinebookborrowsystem/dto/BookRequestDto.java
+        src/main/java/com/demo/onlinebookborrowsystem/dto/BookResponseDto.java
+        src/main/java/com/demo/onlinebookborrowsystem/dto/BorrowDto.java
+       	src/main/java/com/demo/onlinebookborrowsystem/dto/BorrowListDto.java
+        src/main/java/com/demo/onlinebookborrowsystem/dto/CategoryListResponseDto.java
+        src/main/java/com/demo/onlinebookborrowsystem/dto/CategoryResponseDto.java
+        src/main/java/com/demo/onlinebookborrowsystem/dto/ConfirmationRequestDto.java
+        src/main/java/com/demo/onlinebookborrowsystem/dto/ConfirmationResponseDto.java
+        src/main/java/com/demo/onlinebookborrowsystem/dto/LoginDto.java
+        src/main/java/com/demo/onlinebookborrowsystem/dto/LoginResponseDto.java
+        src/main/java/com/demo/onlinebookborrowsystem/dao/BookDao.java
+        src/main/java/com/demo/onlinebookborrowsystem/dao/CategoryDao.java
+        src/main/java/com/demo/onlinebookborrowsystem/dao/ConfirmationDao.java
+        src/main/java/com/demo/onlinebookborrowsystem/dao/UserDao.java
+        src/main/java/com/demo/onlinebookborrowsystem/OnlineBookBorrrowSystemApplication.java
+        src/main/java/com/demo/onlinebookborrowsystem/configuration/SwaggerConfig.java
+        src/main/java/com/demo/onlinebookborrowsystem/exception/ExceptionController.java
+      	src/main/java/com/demo/onlinebookborrowsystem/exception/ResourceNotFoundException.java
+      	src/main/java/com/demo/onlinebookborrowsystem/service/BookService.java
+      	src/main/java/com/demo/onlinebookborrowsystem/service/CategoryService.java
+      	src/main/java/com/demo/onlinebookborrowsystem/service/ConfirmationService.java
+      	src/main/java/com/demo/onlinebookborrowsystem/service/UserService.java
         </sonar.coverage.exclusions>
 	</properties>
 
@@ -83,16 +106,17 @@
 			<plugin>
 				<groupId>org.jacoco</groupId>
 				<artifactId>jacoco-maven-plugin</artifactId>
-				<version>0.8.2</version>
+				<version>${jacoco.version}</version>
 				<executions>
 					<execution>
+						<id>jacoco-initialize</id>
 						<goals>
 							<goal>prepare-agent</goal>
 						</goals>
+						<phase>test-compile</phase>
 					</execution>
-					<!-- attached to Maven test phase -->
 					<execution>
-						<id>report</id>
+						<id>jacoco-site</id>
 						<phase>verify</phase>
 						<goals>
 							<goal>report</goal>
