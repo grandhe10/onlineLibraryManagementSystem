@@ -1,13 +1,6 @@
 package com.demo.onlinebookborrowsystem.service.impl;
 
-import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.when;
-
-import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Optional;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -39,7 +32,7 @@ public class BookServiceImplTest {
 	}
 
 	@Test
-	public void getrequestsByEmployeeIdAndREquestId() {
+	public void getrequestsByAuthorNameAndBookTitleTest() {
 		BookRequestDto bookRequestDto = new BookRequestDto();
 		bookRequestDto.setAuthorName("ABCD");
 		bookRequestDto.setBookTitle("book1");
