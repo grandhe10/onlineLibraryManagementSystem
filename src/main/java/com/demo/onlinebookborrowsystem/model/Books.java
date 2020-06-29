@@ -21,5 +21,35 @@ public class Books {
 	String authorName;
 	Long categoryId;
 	int numberOfBooks;
+	public Long getBookId() {
+		return bookId;
+	}
+	public void setBookId(Long bookId) {
+		this.bookId = bookId;
+	}
+	public String getBookTitle() {
+		return bookTitle;
+	}
+	public void setBookTitle(String bookTitle) {
+		this.bookTitle = bookTitle;
+	}
+	public String getAuthorName() {
+		return authorName;
+	}
+	public void setAuthorName(String authorName) {
+		this.authorName = authorName;
+	}
+	public Long getCategoryId() {
+		return categoryId;
+	}
+	public void setCategoryId(Long categoryId) {
+		this.categoryId = categoryId;
+	}
+	public int getNumberOfBooks() {
+		return numberOfBooks;
+	}
+	public void setNumberOfBooks(int numberOfBooks) {
+		this.numberOfBooks = numberOfBooks;
+	}
 
 }
