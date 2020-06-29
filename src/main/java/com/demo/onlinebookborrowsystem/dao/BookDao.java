@@ -16,4 +16,6 @@ public interface BookDao extends CrudRepository<Books, Long>{
 
 	Optional<Books> findByBookId(Long bookId);
 
+	Optional<List<Books>> findByCategoryId(Long categoryId);
+
 }

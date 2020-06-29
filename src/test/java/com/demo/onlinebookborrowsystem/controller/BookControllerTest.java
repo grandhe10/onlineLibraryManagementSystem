@@ -1,5 +1,6 @@
-package com.demo.onlineborrowsystem.controller;
+package com.demo.onlinebookborrowsystem.controller;
 
+import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
@@ -19,12 +20,10 @@ import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 
-import com.demo.onlinebookborrowsystem.controller.BookController;
 import com.demo.onlinebookborrowsystem.dto.BookListResponseDto;
 import com.demo.onlinebookborrowsystem.dto.BookRequestDto;
 import com.demo.onlinebookborrowsystem.service.BookService;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import static org.mockito.ArgumentMatchers.any;
 @ExtendWith(MockitoExtension.class)
 public class BookControllerTest {
 

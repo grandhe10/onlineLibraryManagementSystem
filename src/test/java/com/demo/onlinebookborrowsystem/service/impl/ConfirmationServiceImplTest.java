@@ -1,7 +1,8 @@
 package com.demo.onlinebookborrowsystem.service.impl;
 
 import static org.mockito.Mockito.verify;
-
+import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.ArgumentMatchers.eq;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
@@ -17,6 +18,7 @@ import com.demo.onlinebookborrowsystem.dao.BookDao;
 import com.demo.onlinebookborrowsystem.dao.CategoryDao;
 import com.demo.onlinebookborrowsystem.dao.ConfirmationDao;
 import com.demo.onlinebookborrowsystem.dao.UserDao;
+import com.demo.onlinebookborrowsystem.dto.BorrowListDto;
 import com.demo.onlinebookborrowsystem.dto.ConfirmationRequestDto;
 import com.demo.onlinebookborrowsystem.dto.ConfirmationResponseDto;
 import com.demo.onlinebookborrowsystem.model.BookStatus;
@@ -65,8 +67,21 @@ public class ConfirmationServiceImplTest {
 		confirmation.setToDate(LocalDate.parse("2020-07-04"));
 		confirmation.setStatus(BookStatus.BORROW);
 		confirmationServiceImpl.borrowBooks(confirmationRequestDtoList, 1L);
-		
+		confirmationDao.findByUserIdAndBookIdAndFromDate(1L, 1L, LocalDate.parse("2020-07-01"));
 		verify(confirmationDao).findByUserIdAndBookIdAndFromDate(1L, 1L, LocalDate.parse("2020-07-01"));
 		
 	}
+	
+	 @Test
+     public void getbookdetailsbyuserId() {
+         BorrowListDto borrowlistDto = new BorrowListDto();
+         List<BorrowListDto> borrowdtolist = new ArrayList<>();
+         borrowdtolist.add(borrowlistDto);
+         borrowlistDto.setAuthorName("gyu");
+         borrowlistDto.setBookTitle("gs");
+         borrowlistDto.setFromDate(LocalDate.parse("2020-06-29"));
+         borrowlistDto.setToDate(LocalDate.parse("2020-06-30"));
+         confirmationServiceImpl.getBorrowlistByUserId(1L);
+         verify(confirmationDao).findAllByUserId(1L);
+}
 }
