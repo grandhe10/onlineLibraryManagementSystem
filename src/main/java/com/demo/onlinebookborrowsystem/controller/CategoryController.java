@@ -12,10 +12,16 @@ import org.springframework.web.bind.annotation.RestController;
 import com.demo.onlinebookborrowsystem.dto.CategoryListResponseDto;
 import com.demo.onlinebookborrowsystem.service.CategoryService;
 
+/**
+ * @author Suma
+ *This controller is used to get the requests and display response based on the request
+ */
 @RestController
 public class CategoryController {
+	
     @Autowired
     CategoryService categoryService;
+    
     private static Log logger = LogFactory.getLog(CategoryController.class);
     
     /**
@@ -27,6 +33,7 @@ public class CategoryController {
     public ResponseEntity<CategoryListResponseDto> getBooksByCategoryName(@RequestParam("categoryName") String categoryName)
     {
         logger.info("Inside getBooksByCategoryName Category controller ");
+        
         return new ResponseEntity<>(categoryService.getBooksByCategoryName(categoryName),HttpStatus.OK);
     }
 }

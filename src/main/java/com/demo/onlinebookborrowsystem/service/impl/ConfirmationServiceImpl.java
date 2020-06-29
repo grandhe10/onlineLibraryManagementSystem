@@ -143,6 +143,8 @@ public class ConfirmationServiceImpl implements ConfirmationService {
         BorrowListDto borrowListDto = new BorrowListDto();
         
         Optional<Books> books = bookDao.findById(borrow.getBookId());
+        if(!books.isPresent())
+        	return null;
         borrowListDto.setAuthorName(books.get().getAuthorName());
         borrowListDto.setBookTitle(books.get().getBookTitle());
         

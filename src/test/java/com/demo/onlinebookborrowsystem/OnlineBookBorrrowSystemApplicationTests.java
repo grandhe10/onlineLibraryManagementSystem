@@ -43,9 +43,5 @@ class OnlineBookBorrrowSystemApplicationTests {
 	public void contexLoads3() throws Exception {
 		assertThat(categoryController).isNotNull();
 	}
-	@Test
-	public void main() {
-		OnlineBookBorrrowSystemApplication.main(new String[] {});
-	}
-
+	
 }

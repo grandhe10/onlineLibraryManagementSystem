@@ -1,7 +1,5 @@
 package com.demo.onlinebookborrowsystem.controller;
 
- 
-
 import javax.validation.Valid;
 
  
@@ -20,19 +18,26 @@ import com.demo.onlinebookborrowsystem.dto.LoginDto;
 import com.demo.onlinebookborrowsystem.dto.LoginResponseDto;
 import com.demo.onlinebookborrowsystem.service.UserService;
 
+/**
+ * @author Lahari
+ * This controller is used to get the requests and display response based on the request
+ *
+ */
 @RestController
 public class UserController {
     private static Log logger = LogFactory.getLog(UserController.class);
     @Autowired
     UserService userService;
-    /**this method is used for successful login
+    
+    /**This method is used for successful login
      * @param loginDto
      * @return logged in succesfully
      */
     @PostMapping("/users/login")
     public ResponseEntity<LoginResponseDto> userLogin(@Valid @RequestBody LoginDto loginDto)
     {
-        logger.info("Inside userlogin method of controller");
+        logger.info("Inside userlogin method ");
+        
         return new ResponseEntity<>(userService.loginUser(loginDto),HttpStatus.OK);
         
     }

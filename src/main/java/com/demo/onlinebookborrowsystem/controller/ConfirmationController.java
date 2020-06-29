@@ -18,26 +18,39 @@ import com.demo.onlinebookborrowsystem.dto.ConfirmationRequestDto;
 import com.demo.onlinebookborrowsystem.dto.ConfirmationResponseDto;
 import com.demo.onlinebookborrowsystem.service.ConfirmationService;
 
+/**
+ * @author Suma
+ *This controller is used to get the requests and display response based on the request
+ */
 @RestController
 public class ConfirmationController {
+	
+	private static Log logger = LogFactory.getLog(ConfirmationController.class);
 	@Autowired
 	ConfirmationService confirmationService;
+	/**
+	 * This method is used to get the list of books borrowed by the user 
+	 * @param confirmationRequestDtoList
+	 * @param userId
+	 * @return list of borrowed books
+	 */
 	@PostMapping("/users/{userId}/confirmations")
 	public ResponseEntity<ConfirmationResponseDto> borrowBooks(@RequestBody List<ConfirmationRequestDto> confirmationRequestDtoList,@PathVariable("userId") Long userId)
 	{
+		logger.info("Inside getborrowbooksbyuserId");
+		
 		return new ResponseEntity<>(confirmationService.borrowBooks(confirmationRequestDtoList,userId),HttpStatus.OK);
 	}
-
-	private static Log logger = LogFactory.getLog(ConfirmationController.class);
-    @Autowired 
-    ConfirmationService confirmationservice;
+  
     /**This method return all the list of borrowed books by user
      * @param userId
      * @return list of borrowed books by user
      */
     @GetMapping("/users/{userId}")
-    public ResponseEntity<List<BorrowListDto>> getListOfBorrowedByuserId(@PathVariable("userId") Long userId) {
-        logger.info("Inside getborrowbooksbyuserId confirmationController");
-        return new ResponseEntity<List<BorrowListDto>>(confirmationService.getBorrowlistByUserId(userId),HttpStatus.OK);
+    public ResponseEntity<List<BorrowListDto>> getListOfBorrowedByuserId(@PathVariable("userId") Long userId) 
+    {
+        logger.info("Inside getborrowbooksbyuserId");
+        
+        return new ResponseEntity<>(confirmationService.getBorrowlistByUserId(userId),HttpStatus.OK);
     }
 }
