@@ -23,6 +23,7 @@
        	src/main/java/com/demo/onlinebookborrowsystem/model/Category.java
        	src/main/java/com/demo/onlinebookborrowsystem/model/Confirmation.java
     	src/main/java/com/demo/onlinebookborrowsystem/model/User.java
+    	src/main/java/com/demo/onlinebookborrowsystem/model/BookStatus.java
         src/main/java/com/demo/onlinebookborrowsystem/dto/BookListResponseDto.java
         src/main/java/com/demo/onlinebookborrowsystem/dto/BookRequestDto.java
         src/main/java/com/demo/onlinebookborrowsystem/dto/BookResponseDto.java
